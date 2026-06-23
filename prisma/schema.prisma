@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  username       String    @unique
+  passwordHash   String
+  avatarUrl      String?
+  bio            String?
+  motorcycle     String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  rides          Ride[]
+  ratingsGiven   Rating[]  @relation("RatingFrom")
+  ratingsReceived Rating[] @relation("RatingTo")
+  sentMessages   Message[] @relation("MessageFrom")
+  receivedMessages Message[] @relation("MessageTo")
+}
+
+model Ride {
+  id            String   @id @default(cuid())
+  title         String
+  description   String?
+  startLat      Float
+  startLng      Float
+  startAddress  String
+  endLat        Float
+  endLng        Float
+  endAddress    String
+  distance      Float?
+  duration      Int?
+  createdAt     DateTime @default(now())
+
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Rating {
+  id            String   @id @default(cuid())
+  speedScore    Int
+  safetyScore   Int
+  comment       String?
+  createdAt     DateTime @default(now())
+
+  fromUserId    String
+  fromUser      User     @relation("RatingFrom", fields: [fromUserId], references: [id], onDelete: Cascade)
+  toUserId      String
+  toUser        User     @relation("RatingTo", fields: [toUserId], references: [id], onDelete: Cascade)
+
+  @@unique([fromUserId, toUserId])
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  content   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  fromUserId String
+  fromUser   User   @relation("MessageFrom", fields: [fromUserId], references: [id], onDelete: Cascade)
+  toUserId   String
+  toUser     User   @relation("MessageTo", fields: [toUserId], references: [id], onDelete: Cascade)
+}
