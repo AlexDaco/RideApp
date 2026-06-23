@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-moto-black: #1a1a2e;
+  --color-moto-dark: #16213e;
+  --color-moto-blue: #0f3460;
+  --color-moto-accent: #e94560;
+  --color-moto-orange: #ff6b35;
+  --color-moto-gold: #f5a623;
+  --color-moto-light: #f0f0f0;
+  --color-moto-surface: #1e2a3a;
+  --color-moto-card: #243447;
+  --color-moto-text: #e8e8e8;
+  --color-moto-muted: #8899aa;
+  --font-heading: "Segoe UI", system-ui, sans-serif;
+  --font-body: "Segoe UI", system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-moto-black);
+  color: var(--color-moto-text);
+  font-family: var(--font-body);
+}
+
+.btn-primary {
+  @apply bg-moto-accent hover:bg-moto-orange text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-moto-surface hover:bg-moto-card text-moto-text font-semibold py-3 px-6 rounded-lg border border-moto-blue transition-all duration-200;
+}
+
+.card {
+  @apply bg-moto-card rounded-xl p-6 shadow-xl border border-moto-blue/30 backdrop-blur-sm;
+}
+
+.input-field {
+  @apply w-full bg-moto-surface border border-moto-blue/50 rounded-lg px-4 py-3 text-moto-text placeholder-moto-muted focus:outline-none focus:border-moto-accent focus:ring-1 focus:ring-moto-accent transition-colors;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-moto-black) 0%, var(--color-moto-dark) 50%, var(--color-moto-blue) 100%);
+}
+
+.accent-glow {
+  box-shadow: 0 0 20px rgba(233, 69, 96, 0.3), 0 0 40px rgba(233, 69, 96, 0.1);
+}
+
+@keyframes revEngine {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.animate-rev {
+  animation: revEngine 0.3s ease-in-out;
+}
+
+.speed-lines {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 10px,
+    rgba(233, 69, 96, 0.1) 10px,
+    rgba(233, 69, 96, 0.1) 12px
+  );
 }
