@@ -124,13 +124,13 @@ export default function ProfilePage() {
           <div>
             <label className="text-sm text-moto-muted mb-1 block">Motorrad</label>
             <div className="relative">
-              <Bike className="absolute left-3 top-3.5 w-5 h-5 text-moto-muted" />
+              <Bike className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-moto-muted pointer-events-none" />
               <input
                 type="text"
                 placeholder="z.B. Yamaha MT-07"
                 value={motorcycle}
                 onChange={(e) => setMotorcycle(e.target.value)}
-                className="input-field pl-11"
+                className="input-field pl-12"
               />
             </div>
           </div>

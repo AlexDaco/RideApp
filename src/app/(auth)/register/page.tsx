@@ -48,31 +48,31 @@ export default function RegisterPage() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="relative">
-          <Mail className="absolute left-3 top-3.5 w-5 h-5 text-moto-muted" />
+          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-moto-muted pointer-events-none" />
           <input
             type="email"
             placeholder="E-Mail"
             value={form.email}
             onChange={updateField("email")}
             required
-            className="input-field pl-11"
+            className="input-field pl-12"
           />
         </div>
 
         <div className="relative">
-          <User className="absolute left-3 top-3.5 w-5 h-5 text-moto-muted" />
+          <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-moto-muted pointer-events-none" />
           <input
             type="text"
             placeholder="Benutzername"
             value={form.username}
             onChange={updateField("username")}
             required
-            className="input-field pl-11"
+            className="input-field pl-12"
           />
         </div>
 
         <div className="relative">
-          <Lock className="absolute left-3 top-3.5 w-5 h-5 text-moto-muted" />
+          <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-moto-muted pointer-events-none" />
           <input
             type="password"
             placeholder="Passwort (mind. 8 Zeichen)"
@@ -80,7 +80,7 @@ export default function RegisterPage() {
             onChange={updateField("password")}
             required
             minLength={8}
-            className="input-field pl-11"
+            className="input-field pl-12"
           />
         </div>
 
