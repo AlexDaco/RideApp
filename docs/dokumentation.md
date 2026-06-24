@@ -204,6 +204,7 @@ const FEATURES = [
 - **Turbopack + Prisma:** Next.js 16 nutzt standardmässig Turbopack, was zunächst Probleme mit dem Prisma-Client-Import verursachte.
 - **useSearchParams:** Next.js erfordert einen Suspense-Boundary um Komponenten mit `useSearchParams`, was bei der statischen Generierung zu Build-Fehlern führte.
 - **Leaflet SSR:** Leaflet funktioniert nicht serverseitig – die Lösung war `dynamic()` Import mit `ssr: false`.
+- **Icon-Alignment in Eingabefeldern:** Die Icons in den Textfeldern (E-Mail, Passwort, Suche, Motorrad) überlappten zunächst mit dem Platzhaltertext. Die Lösung war, die Icons mit `top-1/2 -translate-y-1/2` vertikal zu zentrieren, den Abstand von `left-3` auf `left-4` zu erhöhen, und das Input-Padding von `pl-11` auf `pl-12` anzupassen. Zusätzlich wurde `pointer-events-none` gesetzt, damit Klicks auf das Icon den Input fokussieren.
 
 ### Was nehme ich mit?
 
