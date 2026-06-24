@@ -55,7 +55,7 @@ export default function RegisterPage() {
             value={form.email}
             onChange={updateField("email")}
             required
-            className="input-field pl-12"
+            className="input-icon-field"
           />
         </div>
 
@@ -67,7 +67,7 @@ export default function RegisterPage() {
             value={form.username}
             onChange={updateField("username")}
             required
-            className="input-field pl-12"
+            className="input-icon-field"
           />
         </div>
 
@@ -80,7 +80,7 @@ export default function RegisterPage() {
             onChange={updateField("password")}
             required
             minLength={8}
-            className="input-field pl-12"
+            className="input-icon-field"
           />
         </div>
 

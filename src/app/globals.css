@@ -35,7 +35,11 @@ body {
 }
 
 .input-field {
-  @apply w-full bg-moto-surface border border-moto-blue/50 rounded-lg px-4 py-3 text-moto-text placeholder-moto-muted focus:outline-none focus:border-moto-accent focus:ring-1 focus:ring-moto-accent transition-colors;
+  @apply w-full bg-moto-surface border border-moto-blue/50 rounded-lg pr-4 pl-4 py-3 text-moto-text placeholder-moto-muted focus:outline-none focus:border-moto-accent focus:ring-1 focus:ring-moto-accent transition-colors;
+}
+
+.input-icon-field {
+  @apply w-full bg-moto-surface border border-moto-blue/50 rounded-lg pr-4 pl-14 py-3 text-moto-text placeholder-moto-muted focus:outline-none focus:border-moto-accent focus:ring-1 focus:ring-moto-accent transition-colors;
 }
 
 .gradient-bg {

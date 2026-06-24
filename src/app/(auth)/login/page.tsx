@@ -74,7 +74,7 @@ function LoginContent() {
             value={form.email}
             onChange={updateField("email")}
             required
-            className="input-field pl-12"
+            className="input-icon-field"
           />
         </div>
 
@@ -86,7 +86,7 @@ function LoginContent() {
             value={form.password}
             onChange={updateField("password")}
             required
-            className="input-field pl-12"
+            className="input-icon-field"
           />
         </div>
 

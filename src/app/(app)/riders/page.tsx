@@ -81,7 +81,7 @@ export default function RidersPage() {
             placeholder="Fahrer suchen..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="input-field pl-12"
+            className="input-icon-field"
           />
         </div>
         <select

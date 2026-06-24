@@ -130,7 +130,7 @@ export default function ProfilePage() {
                 placeholder="z.B. Yamaha MT-07"
                 value={motorcycle}
                 onChange={(e) => setMotorcycle(e.target.value)}
-                className="input-field pl-12"
+                className="input-icon-field"
               />
             </div>
           </div>
