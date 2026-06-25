@@ -34,12 +34,31 @@ body {
   @apply bg-moto-card rounded-xl p-6 shadow-xl border border-moto-blue/30 backdrop-blur-sm;
 }
 
-.input-field {
-  @apply w-full bg-moto-surface border border-moto-blue/50 rounded-lg pr-4 pl-4 py-3 text-moto-text placeholder-moto-muted focus:outline-none focus:border-moto-accent focus:ring-1 focus:ring-moto-accent transition-colors;
+.input-field,
+.input-icon-field {
+  width: 100%;
+  background-color: var(--color-moto-surface);
+  border: 1px solid rgba(15, 52, 96, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-moto-text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-field::placeholder,
+.input-icon-field::placeholder {
+  color: var(--color-moto-muted);
+}
+
+.input-field:focus,
+.input-icon-field:focus {
+  outline: none;
+  border-color: var(--color-moto-accent);
+  box-shadow: 0 0 0 1px var(--color-moto-accent);
 }
 
 .input-icon-field {
-  @apply w-full bg-moto-surface border border-moto-blue/50 rounded-lg pr-4 pl-14 py-3 text-moto-text placeholder-moto-muted focus:outline-none focus:border-moto-accent focus:ring-1 focus:ring-moto-accent transition-colors;
+  padding-left: 3.25rem;
 }
 
 .gradient-bg {
