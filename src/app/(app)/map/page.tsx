@@ -41,11 +41,12 @@ export default function MapPage() {
   }, [status, router]);
 
   useEffect(() => {
+    if (status !== "authenticated") return;
     fetch("/api/rides")
       .then((res) => res.json())
-      .then(setRides)
+      .then((data) => setRides(Array.isArray(data) ? data : []))
       .catch(() => {});
-  }, []);
+  }, [status]);
 
   const handleReset = useCallback(() => {
     setStart(null);

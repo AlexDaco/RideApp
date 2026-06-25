@@ -42,11 +42,12 @@ export default function RidersPage() {
   }, [status, router]);
 
   useEffect(() => {
+    if (status !== "authenticated") return;
     fetch("/api/riders")
       .then((res) => res.json())
-      .then((data) => { setRiders(data); setLoading(false); })
+      .then((data) => { setRiders(Array.isArray(data) ? data : []); setLoading(false); })
       .catch(() => setLoading(false));
-  }, []);
+  }, [status]);
 
   const filteredRiders = riders
     .filter((r) => r.username.toLowerCase().includes(search.toLowerCase()))

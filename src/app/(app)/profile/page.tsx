@@ -33,9 +33,11 @@ export default function ProfilePage() {
   }, [status, router]);
 
   useEffect(() => {
+    if (status !== "authenticated") return;
     fetch("/api/profile")
       .then((res) => res.json())
       .then((data) => {
+        if (data.error) return setLoading(false);
         setProfile(data);
         setBio(data.bio ?? "");
         setMotorcycle(data.motorcycle ?? "");

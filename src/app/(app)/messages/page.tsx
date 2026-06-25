@@ -50,11 +50,12 @@ function MessagesContent() {
   }, [status, router]);
 
   useEffect(() => {
+    if (status !== "authenticated") return;
     fetch("/api/messages")
       .then((res) => res.json())
-      .then((data) => { setConversations(data); setLoading(false); })
+      .then((data) => { setConversations(Array.isArray(data) ? data : []); setLoading(false); })
       .catch(() => setLoading(false));
-  }, []);
+  }, [status]);
 
   const loadMessages = useCallback(async (userId: string) => {
     const res = await fetch(`/api/messages/${userId}`);
