@@ -56,11 +56,12 @@ export default function RiderDetailPage({ params }: { params: Promise<{ id: stri
   }, [status, router]);
 
   useEffect(() => {
+    if (status !== "authenticated") return;
     fetch(`/api/riders/${id}`)
       .then((res) => res.json())
-      .then((data) => { setRider(data); setLoading(false); })
+      .then((data) => { if (!data.error) setRider(data); setLoading(false); })
       .catch(() => setLoading(false));
-  }, [id]);
+  }, [id, status]);
 
   const handleSubmitRating = async () => {
     if (speedScore === 0 || safetyScore === 0) return;

@@ -58,10 +58,12 @@ function MessagesContent() {
   }, [status]);
 
   const loadMessages = useCallback(async (userId: string) => {
-    const res = await fetch(`/api/messages/${userId}`);
-    const data = await res.json();
-    setMessages(data);
-    setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
+    try {
+      const res = await fetch(`/api/messages/${userId}`);
+      const data = await res.json();
+      setMessages(Array.isArray(data) ? data : []);
+      setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
+    } catch { /* ignore fetch errors during navigation */ }
   }, []);
 
   useEffect(() => {

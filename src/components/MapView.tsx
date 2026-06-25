@@ -62,6 +62,13 @@ export default function MapView({ onStartSelect, onEndSelect, start, end, onRese
     };
 
     loadLeaflet();
+
+    return () => {
+      if (map) {
+        map.remove();
+        setMap(null);
+      }
+    };
   }, []);
 
   const clearMarkers = useCallback(() => {

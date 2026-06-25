@@ -44,7 +44,7 @@ export default function ProfilePage() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
+  }, [status]);
 
   const handleSave = async () => {
     setSaving(true);
